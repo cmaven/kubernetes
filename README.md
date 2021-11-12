@@ -24,7 +24,7 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
-sudo apt-get install kubeadm=1.18.6-00 kubelet=1.18.6-00 kubectl=1.18.6-00
+sudo apt-get install kubeadm=1.22.2-00 kubectl=1.22.2-00 kubelet=1.22.2-00
 
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.2.5
 
