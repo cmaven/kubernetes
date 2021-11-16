@@ -5,7 +5,7 @@
 ```shell
 swapoff -a
 
-sudo apt-get install openssh-server apt-transport-https curl -y
+sudo apt-get install openssh-server apt-transport-https curl ca-certificates -y
 
 sudo apt-get install docker.io -y
 
@@ -13,7 +13,6 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl
 
 # download the oogle cloud public signing key
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
