@@ -26,6 +26,20 @@ sudo apt-get install -y kubectl
 
 sudo apt-get install kubeadm=1.22.2-00 kubectl=1.22.2-00 kubelet=1.22.2-00
 
+sudo mkdir /etc/docker
+cat <<EOF | sudo tee /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+
+
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.2.5
 
 mkdir -p $HOME/.kube
