@@ -38,7 +38,9 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
 }
 EOF
 
-
+sudo systemctl enable docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.2.5
 
