@@ -50,9 +50,39 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f 'https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml'
 ```
 
-
-apt-get install -y python3-pip
+``` shell
+sudo apt-get install -y python3-pip
 pip3 install --user pipenv
 
-python3 -m pipenv install
-python3 -m pipenv shell
+PYTHON_VERSION=3.6
+export PIPENV_VENV_IN_PROJECT=true
+
+export PIPENV_VENV_IN_PROJECT=true
+
+if [ ! -d ../venv ]; then
+    echo "Run new virtual environment"
+
+    cd ../
+        mkdir venv
+        cd venv
+        python3 -m pipenv --python $PYTHON_VERSION
+
+        echo "Please manual install packages"
+        exit 0
+else
+    echo "Run exist virtual environment"
+
+    cd ../venv
+        python3 -m pipenv install
+        python3 -m pipenv shell
+fi
+
+
+
+if [ -d ../venv ]; then
+    cd ../venv
+        pipenv --rm
+
+        echo "Don't delete Pipfile, Pipfile.lock files"
+fi
+```
