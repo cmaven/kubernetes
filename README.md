@@ -57,8 +57,6 @@ pip3 install --user pipenv
 PYTHON_VERSION=3.6
 export PIPENV_VENV_IN_PROJECT=true
 
-export PIPENV_VENV_IN_PROJECT=true
-
 if [ ! -d ../venv ]; then
     echo "Run new virtual environment"
 
