@@ -38,7 +38,7 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
 EOF
 
 # for nvidia gpu(nvidia-docker2)
-cat << EOF | sudo tee /etc/docker/daemon/json
+cat << EOF | sudo tee /etc/docker/daemon.json
 {
   "default-runtime": "nvidia",
   "runtimes": {
